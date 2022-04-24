@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
+import Footer from "./components/Footer";
+import HeaderAction from "./components/HeaderAction";
+import Contact from "./Pages/Contact";
+import LandingPage from "./Pages/LandingPage";
+import { useContext } from "react";
+import authContext from "./contextes/authContext";
+import Dashboard from "./Pages/Dashboard";
+
+const links = [
+  { link: "/schedule", label: "Schedule" },
+  { link: "/contact", label: "Contact" },
+  { link: "/about", label: "About" },
+];
 
 function App() {
+  const { user } = useContext(authContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <HeaderAction links={links} />
+      <Routes>
+        <Route path="/" element={user ? <Dashboard /> : <LandingPage />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Navigate to={"/"} />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
