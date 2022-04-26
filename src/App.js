@@ -6,6 +6,8 @@ import LandingPage from "./Pages/LandingPage";
 import { useContext } from "react";
 import authContext from "./contextes/authContext";
 import Dashboard from "./Pages/Dashboard";
+import About from "./Pages/About";
+import Schedule from "./Pages/Schedule";
 
 const links = [
   { link: "/schedule", label: "Schedule" },
@@ -21,6 +23,8 @@ function App() {
       <Routes>
         <Route path="/" element={user ? <Dashboard /> : <LandingPage />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/schedule" element={<Schedule />} />
         <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
       <Footer />

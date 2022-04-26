@@ -47,7 +47,7 @@ const UserButton = forwardRef(
   )
 );
 
-export default function UserCard({ name, email }) {
+export default function UserCard({ name }) {
   const { logout } = useContext(authContext);
   const navigate = useNavigate();
   return (
@@ -59,33 +59,9 @@ export default function UserCard({ name, email }) {
           <UserButton
             image={`https://avatars.dicebear.com/api/male/${name}.svg`}
             name={name}
-            email={email}
           />
         }
       >
-        <Menu.Label>Actions</Menu.Label>
-        <Menu.Item
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Join Team
-        </Menu.Item>
-        <Menu.Item
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Create team
-        </Menu.Item>
-        <Menu.Item
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Invite link
-        </Menu.Item>
-        <Divider />
         <Menu.Item color={"red"} onClick={logout}>
           Logout
         </Menu.Item>

@@ -17,7 +17,7 @@ const useStyles = createStyles((theme) => ({
     backgroundPosition: "center",
   },
 
-  overlay: { backdropFilter: "blur(5px)" },
+  overlay: { backdropFilter: "blur(2px)" },
 
   container: {
     height: 700,
