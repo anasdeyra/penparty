@@ -150,7 +150,6 @@ export default function HeaderAction({ links }) {
           />
           <Box to="/" component={Link}>
             <Image
-              compone
               width={"28px"}
               src={`${process.env.PUBLIC_URL}/favicon.png`}
               alt="logo"

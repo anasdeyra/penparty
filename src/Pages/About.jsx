@@ -5,7 +5,7 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     minHeight: "95vh",
     backgroundSize: "cover",
-    backgroundImage: `url(${process.env.PUBLIC_URL}/banner.png)`,
+    backgroundImage: `url(${process.env.PUBLIC_URL}/banner.jpg)`,
   },
 
   form: {

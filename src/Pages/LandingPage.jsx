@@ -12,7 +12,7 @@ import SignupButton from "../components/SignupModal";
 const useStyles = createStyles((theme) => ({
   hero: {
     position: "relative",
-    backgroundImage: `url(${process.env.PUBLIC_URL}/banner.png)`,
+    backgroundImage: `url(${process.env.PUBLIC_URL}/banner.jpg)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   },
