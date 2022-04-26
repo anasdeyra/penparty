@@ -19,3 +19,7 @@ export async function joinTeam(token, data) {
     headers: { authorization: `Bearer ${token}` },
   });
 }
+
+export async function contact(data) {
+  return axios.post(`${process.env.REACT_APP_SERVER_URL}/contact`, data);
+}

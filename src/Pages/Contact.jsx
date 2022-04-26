@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   createStyles,
   Text,
@@ -10,12 +10,20 @@ import {
   Group,
   ActionIcon,
   Stack,
+  LoadingOverlay,
 } from "@mantine/core";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { MdAlternateEmail, MdPhone, MdLocationOn } from "react-icons/md";
+import { useMutation } from "react-query";
+import { showNotification } from "@mantine/notifications";
+import { MdCheck, MdClear } from "react-icons/md";
+import { contact } from "../api";
+import authContext from "../contextes/authContext";
+import { useForm } from "react-hook-form";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
+    position: "relative",
     width: "80%",
     margin: "2rem auto 2rem auto",
     minHeight: 400,
@@ -89,7 +97,26 @@ const social = [
 ];
 
 export default function Contact() {
+  const { handleSubmit, register } = useForm();
   const { classes } = useStyles();
+  const { mutate, isLoading } = useMutation("contact", contact, {
+    onSuccess: () => {
+      showNotification({
+        title: "Your message was sent sucessfully!",
+        autoClose: 5000,
+        color: "red",
+        icon: <MdCheck />,
+      });
+    },
+    onError: () => {
+      showNotification({
+        title: "there was an error sending your message",
+        autoClose: 5000,
+        color: "red",
+        icon: <MdClear />,
+      });
+    },
+  });
 
   const icons = social.map(([Icon, link], index) => (
     <ActionIcon
@@ -106,7 +133,8 @@ export default function Contact() {
   ));
 
   return (
-    <div className={classes.wrapper}>
+    <form onSubmit={handleSubmit(mutate)} className={classes.wrapper}>
+      <LoadingOverlay loaderProps={{ color: "red" }} visible={isLoading} />
       <SimpleGrid
         cols={2}
         spacing={50}
@@ -130,9 +158,12 @@ export default function Contact() {
             placeholder="your@email.com"
             required
             classNames={{ input: classes.input, label: classes.inputLabel }}
+            {...register("email")}
           />
           <TextInput
+            {...register("name")}
             label="Name"
+            required
             placeholder="Rick & Morty"
             mt="md"
             classNames={{ input: classes.input, label: classes.inputLabel }}
@@ -144,19 +175,22 @@ export default function Contact() {
             minRows={4}
             mt="md"
             classNames={{ input: classes.input, label: classes.inputLabel }}
+            {...register("msg")}
           />
 
           <Group position="right" mt="md">
             <Button
+              type="submit"
               variant="gradient"
               gradient={{ from: "#C92A2A", to: "#A61E4D" }}
+              loading={isLoading}
             >
               Send message
             </Button>
           </Group>
         </div>
       </SimpleGrid>
-    </div>
+    </form>
   );
 }
 
