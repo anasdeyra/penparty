@@ -41,7 +41,7 @@ export default function About() {
 
         <Text size="lg">
           Penparty is a 24-hour challenge in cybersecurity. It will take place
-          on 07/08 May 2022 The main goal of each team is to find as many
+          on 07/08 May 2022. The main goal of each team is to find as many
           vulnerabilities as possible within a simulated enterprise network and
           provide the best recommendations to prevent them. Different resource
           types (firewall, router, switches, access points, printers,
@@ -51,10 +51,10 @@ export default function About() {
         <br />
         <Text size="lg">
           This event will be in collaboration with the Ministry of Communication
-          Technologies and the Digital Economy and the National Agency for IT
-          security (ANSI). The opportunity to discover the talented ones in
-          cybersecurity to evolve the consistencies of technology and cyber
-          risks...
+          Technologies and the Digital Economy and the National Agency for
+          Computer Security (ANSI). This is an opportunity to discover the
+          talented ones in cybersecurity and to evolve the consistencies of
+          technology and cyber risks...
         </Text>
       </Paper>
     </div>

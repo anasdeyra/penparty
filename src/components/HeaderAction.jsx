@@ -11,7 +11,6 @@ import {
   Drawer,
   Stack,
   Box,
-  Button,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
 import { MdExpandMore } from "react-icons/md";
@@ -20,7 +19,6 @@ import LoginButton from "./LoginModal";
 import SignupButton from "./SignupModal";
 import { useContext } from "react";
 import authContext from "../contextes/authContext";
-import { showNotification } from "@mantine/notifications";
 import UserCard from "./UserCard";
 
 const HEADER_HEIGHT = 50;
