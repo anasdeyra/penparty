@@ -161,7 +161,7 @@ function JoinTeam() {
   function onSubmit(data) {
     return new Promise((resolve) => {
       mutate(
-        { ...data, teamName: "youssef ya jabri" },
+        { ...data, teamName: "yyjaaa" },
         {
           onSuccess: ({ data }) => {
             if (data === "Team not found !")

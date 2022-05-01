@@ -96,7 +96,7 @@ export default function LandingPage() {
               fontFamily: "caveat",
             }}
           >
-            08-09 may, 2022
+            07-08 may, 2022
           </Text>
           PenParty
           <Text

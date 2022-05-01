@@ -93,7 +93,6 @@ const useStyles = createStyles((theme) => ({
 const social = [
   [FaFacebook, "https://www.facebook.com/PenParty2"],
   [FaInstagram, "https://www.instagram.com/penparty_/"],
-  [FaYoutube, "#"],
 ];
 
 export default function Contact() {
